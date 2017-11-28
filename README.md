@@ -165,7 +165,7 @@ var Buttonify=React.createClass({
     render: function(){
         return(
             <div>
-                <button type={this.prop.behavior}>{this.prop.children}</button>
+                `<button type={this.prop.behavior}>{this.prop.children}</button>`
             </div>
         );
     }
