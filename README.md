@@ -107,26 +107,26 @@ render 메소드에 호출.
 React.createElement(helloworld);도 가능
 
 <pre><code>
-```html
+
 ReactDOM.render(
-    <helloworld/>,
+     &lt;helloworld/&gt;,
     document.querySelector("#container");
 ); 
-```
+
 </code></pre>
 
 #함수처럼 여러번 쓰고 싶다면 div태그로 묶어서 사용가능(render는 하나의 엘리먼트만 가능)
 <pre><code>
-```html
+
 ReactDOM.render(
-    <div>
-    <helloworld/>
-    <helloworld/>
-    <helloworld/>
-    </div>,
+    &lt;/div&gt;
+     &lt;helloworld/&gt;
+     &lt;helloworld/&gt;
+     &lt;helloworld/&gt;
+    &lt;/div&gt;,
     document.querySelector("#container");
 ); 
-```
+
 </code></pre>
 
 ## 속성지정
@@ -134,24 +134,23 @@ ReactDOM.render(
 속성 값을 지정하여 콤포넌트 정의를 변경할 수 있음
 {}로 감싸서 표현식을 만듬
 <pre><code>
-```html
+
 var helloworld= React.createClass({
     render: function(){
         return(
-            <p> hello {this.prop.Target}!</p>
+            &lt;p&gt; hello {this.prop.Target}!&lt;/p&gt;
         );
     }
 });
 
 ReactDOM.render(
 
-    <div>
-    <helloworld Target="JQ"/>
-    <helloworld Target="UB"/>
-    </div>,
+    &lt;/div&gt;
+    &lt;helloworld Target="JQ"/&gt;
+    &lt;helloworld Target="UB"/&gt;
+    &lt;/div&gt;,
     document.querySelector("#apps")
 );
-```
 </code></pre>
 
 ## 자식 다루기
@@ -164,17 +163,17 @@ var Buttonify=React.createClass({
 
     render: function(){
         return(
-            <div>
+            &lt;div&gt;
                 `&lt;button type={this.prop.behavior}&gt;`{this.prop.children}`&lt;/button&gt'`
-            </div>
+            &lt;/div&gt;
         );
     }
 });
 
 ReactDOM.render(
-    <div>
-        <Buttonify behavior="submit">SEND DATA</Buttonify>
-    </div>,
+    &lt;/div&gt;
+        &lt;Buttonify behavior="submit"&gt;SEND DATA&lt;/Buttonify&gt;
+    &lt;/div&gt;,
     document.querySelector("#apps");
 );
 ```
