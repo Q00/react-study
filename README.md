@@ -158,13 +158,13 @@ ReactDOM.render(
 # this.prop.children 을 사용함
 
 <pre><code>
-```html
+
 var Buttonify=React.createClass({
 
     render: function(){
         return(
             &lt;div&gt;
-                `&lt;button type={this.prop.behavior}&gt;`{this.prop.children}`&lt;/button&gt'`
+                &lt;button type={this.prop.behavior}&gt;`{this.prop.children}`&lt;/button&gt'
             &lt;/div&gt;
         );
     }
@@ -176,7 +176,7 @@ ReactDOM.render(
     &lt;/div&gt;,
     document.querySelector("#apps");
 );
-```
+
 </code></pre>
 
 이렇게 커스텀 속성으로 button 엘리먼트의 타입을 지정할 수 있고 render메소드에서 innerHTML을 접근할 수 있다.
