@@ -48,7 +48,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
 
 # 리액트 시작하기
 <pre><code>
-~~~
+
 <html>
 <head>
 <meta charset="UTF-8" />
@@ -76,7 +76,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
     </script>    
     </body>
 </html>
-~~~
+
 </code></pre>
 
 ---
@@ -89,15 +89,15 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
 # React.createClass 라는 것으로 컴포넌트를 만들 수 있음
 
 <pre><code>
-~~~
+
 var helloworld= React.createClass({
     render: function(){
         return(
-            <p> hello world!</p>
+            `<p> hello world!</p>`
         );
     }
 });
-~~~
+
 </code></pre>
 
 # 호출 하는법
@@ -106,26 +106,26 @@ render 메소드에 호출.
 React.createElement(helloworld);도 가능
 
 <pre><code>
-~~~
+
 ReactDOM.render(
-    <helloworld/>,
+    `<helloworld/>`,
     document.querySelector("#container");
 ); 
-~~~
+
 </code></pre>
 
 #함수처럼 여러번 쓰고 싶다면 div태그로 묶어서 사용가능(render는 하나의 엘리먼트만 가능)
 <pre><code>
-~~~
+
 ReactDOM.render(
-    <div>
-    <helloworld/>
-    <helloworld/>
-    <helloworld/>
-    </div>,
+    `<div>`
+    `<helloworld/>`
+    `<helloworld/>`
+    `<helloworld/>`
+    `</div>`,
     document.querySelector("#container");
 ); 
-~~~
+
 </code></pre>
 
 ## 속성지정
@@ -133,7 +133,7 @@ ReactDOM.render(
 속성 값을 지정하여 콤포넌트 정의를 변경할 수 있음
 {}로 감싸서 표현식을 만듬
 <pre><code>
-~~~
+
 var helloworld= React.createClass({
     render: function(){
         return(
@@ -144,13 +144,13 @@ var helloworld= React.createClass({
 
 ReactDOM.render(
 
-    <div>
-    <helloworld Target="JQ"/>
-    <helloworld Target="UB"/>
-    </div>,
+    `<div>`
+    `<helloworld Target="JQ"/>`
+    `<helloworld Target="UB"/>`
+    `</div>`,
     document.querySelector("#apps")
 );
-~~~
+
 </code></pre>
 
 ## 자식 다루기
@@ -158,25 +158,25 @@ ReactDOM.render(
 # this.prop.children 을 사용함
 
 <pre><code>
-~~~
+
 var Buttonify=React.createClass({
 
     render: function(){
         return(
-            <div>
-                <button type={this.prop.behavior}>{this.prop.children}</button>
-            </div>
+            `<div>`
+                `<button type={this.prop.behavior}>{this.prop.children}</button>`
+            `</div>`
         );
     }
 });
 
 ReactDOM.render(
-    <div>
-        <Buttonify behavior="submit">SEND DATA</Buttonify>
-    </div>,
+    `<div>`
+        `<Buttonify behavior="submit">SEND DATA</Buttonify>`
+    `</div>`,
     document.querySelector("#apps");
 );
-~~~
+
 </code></pre>
 
 이렇게 커스텀 속성으로 button 엘리먼트의 타입을 지정할 수 있고 render메소드에서 innerHTML을 접근할 수 있다.
