@@ -48,6 +48,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
 
 # 리액트 시작하기
 <pre><code>
+~~~
 <html>
 <head>
 <meta charset="UTF-8" />
@@ -75,6 +76,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
     </script>    
     </body>
 </html>
+~~~
 </code></pre>
 
 ---
@@ -87,6 +89,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
 # React.createClass 라는 것으로 컴포넌트를 만들 수 있음
 
 <pre><code>
+~~~
 var helloworld= React.createClass({
     render: function(){
         return(
@@ -94,7 +97,8 @@ var helloworld= React.createClass({
         );
     }
 });
-</pre></code>
+~~~
+</code></pre>
 
 # 호출 하는법
 <helloworld /> 이렇게 객체 이름을 태그안에 적어주는 jsx문법을 이용하여
@@ -102,14 +106,17 @@ render 메소드에 호출.
 React.createElement(helloworld);도 가능
 
 <pre><code>
+~~~
 ReactDOM.render(
     <helloworld/>,
     document.querySelector("#container");
 ); 
-</pre></code>
+~~~
+</code></pre>
 
 #함수처럼 여러번 쓰고 싶다면 div태그로 묶어서 사용가능(render는 하나의 엘리먼트만 가능)
 <pre><code>
+~~~
 ReactDOM.render(
     <div>
     <helloworld/>
@@ -118,13 +125,15 @@ ReactDOM.render(
     </div>,
     document.querySelector("#container");
 ); 
-</pre></code>
+~~~
+</code></pre>
 
 ## 속성지정
 
 속성 값을 지정하여 콤포넌트 정의를 변경할 수 있음
 {}로 감싸서 표현식을 만듬
 <pre><code>
+~~~
 var helloworld= React.createClass({
     render: function(){
         return(
@@ -140,14 +149,16 @@ ReactDOM.render(
     <helloworld Target="UB"/>
     </div>,
     document.querySelector("#apps")
-)
-</pre></code>
+);
+~~~
+</code></pre>
 
 ## 자식 다루기
 컴포넌트는 childnode처럼 자식을 가질 수 있음(여러개의 엘리먼트를 rendering할 수 있음)
 # this.prop.children 을 사용함
 
 <pre><code>
+~~~
 var Buttonify=React.createClass({
 
     render: function(){
@@ -165,7 +176,8 @@ ReactDOM.render(
     </div>,
     document.querySelector("#apps");
 );
-</pre></code>
+~~~
+</code></pre>
 
 이렇게 커스텀 속성으로 button 엘리먼트의 타입을 지정할 수 있고 render메소드에서 innerHTML을 접근할 수 있다.
 # this.prop.children은 하위 엘리먼트들이 더 있다면 배열을 리턴한다.
