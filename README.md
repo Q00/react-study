@@ -186,7 +186,7 @@ ReactDOM.render(
         prop는 불변(Immutable), interface로 작용, 내부에서 변경 불가
 
 propTypes : Prop는 외부에서 값을 지정받기 때문에 타입제약을 지정할 수 있음
-
+<code><pre>
 var Avatar = React.createClass({
   propTypes: {
     name:   React.PropTypes.string.isRequired,
@@ -232,10 +232,10 @@ customPropType: function(props, propName, componentName) {
     return new Error('Validation failed!');
   }
 }
-
+</code></pre>
 -----
-prop는 불변하지만 React State는 이변한 값을 정의할 수 있음
-
+# prop는 불변하지만 React State는 이변한 값을 정의할 수 있음
+<pre><code>
 var Counter = React.createClass({
   getInitialState() {
     return {
@@ -254,13 +254,13 @@ var Counter = React.createClass({
     );
   }
 });
-
-this.prop나 this.state나 둘다 불변 성격을 가지고 있음
+</pre></code>
+* this.prop나 this.state나 둘다 불변 성격을 가지고 있음
 변경을 하기 위해선 prop는 state로 state는 setState가 호출되어야 rendering이 된다.
 
 ------------------
-this.props =&gt; react component안에 innerHtml을 얻고자 할때 사용
-
+# this.props =&gt; react component안에 innerHtml을 얻고자 할때 사용
+<pre><code>
 var Hello = React.createClass({
   render() {
     return &lt;div&gt;{this.props.children}&lt;/div&gt;;
@@ -291,5 +291,5 @@ console.log(
 );
 // undefined
 
-
+</pre></code>
 
