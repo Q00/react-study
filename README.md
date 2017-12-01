@@ -94,7 +94,7 @@ JSX라고 하는 문법을 사용하여 자바스크립트와 호환되면서도
 var helloworld= React.createClass({
     render: function(){
         return(
-            <p> hello world!</p>
+            &lt;p&gt; hello world!&lt;/p&gt;
         );
     }
 });
@@ -181,4 +181,115 @@ ReactDOM.render(
 
 이렇게 커스텀 속성으로 button 엘리먼트의 타입을 지정할 수 있고 render메소드에서 innerHTML을 접근할 수 있다.
 # this.prop.children은 하위 엘리먼트들이 더 있다면 배열을 리턴한다.
+> prop : 컴포넌트의 속성, 컴포넌트 내에서는 this.prop.~로 참조
+        객체, 함수 어느타임이든 지정가능
+        prop는 불변(Immutable), interface로 작용, 내부에서 변경 불가
+
+propTypes : Prop는 외부에서 값을 지정받기 때문에 타입제약을 지정할 수 있음
+
+var Avatar = React.createClass({
+  propTypes: {
+    name:   React.PropTypes.string.isRequired,
+    id:     React.PropTypes.number.isRequired,
+    width:  React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired,
+    alt:    React.PropTypes.string
+  },
+  render() {
+    var src = `/img/avatar/${this.props.id}.png`;
+    return (
+      &lt;div&gt;
+        &lt;img src={src} width={this.props.width} height={this.props.height} alt={this.props.alt} /&gt;
+        &lt;span&gt;{this.props.name}&lt;/span&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+
+React.PropTypes.array           // 배열
+React.PropTypes.bool.isRequired // Boolean, 필수
+React.PropTypes.func            // 함수
+React.PropTypes.number          // 정수
+React.PropTypes.object          // 객체
+React.PropTypes.string          // 문자열
+React.PropTypes.node            // Render가 가능한 객체
+React.PropTypes.element         // React Element
+React.PropTypes.instanceOf(XXX) // XXX의 instance
+React.PropTypes.oneOf(['foo', 'bar']) // foo 또는 bar
+React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.array]) // 문자열 또는 배열
+React.PropTypes.arrayOf(React.PropTypes.string)  // 문자열을 원소로 가지는 배열
+React.PropTypes.objectOf(React.PropTypes.string) // 문자열을 값으로 가지는 객체
+React.PropTypes.shape({                          // 지정된 형식을 충족하는지
+  color: React.PropTypes.string,
+  fontSize: React.PropTypes.number
+});
+React.PropTypes.any.isRequired  // 어떤 타입이든 가능하지만 필수
+
+// 커스텀 제약도 정의 가능
+customPropType: function(props, propName, componentName) {
+  if (!/^[0-9]/.test(props[propName])) {
+    return new Error('Validation failed!');
+  }
+}
+
+-----
+prop는 불변하지만 React State는 이변한 값을 정의할 수 있음
+
+var Counter = React.createClass({
+  getInitialState() {
+    return {
+      count: 0
+    };
+  },
+  onKeyUp() {
+    this.setState({ count: this.state.count + 1});
+  },
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;span&gt;{this.state.count}&lt;/span&gt;
+        &lt;button onKeyUp={this.onKeyUp}&gt;hit&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+this.prop나 this.state나 둘다 불변 성격을 가지고 있음
+변경을 하기 위해선 prop는 state로 state는 setState가 호출되어야 rendering이 된다.
+
+------------------
+this.props =&gt; react component안에 innerHtml을 얻고자 할때 사용
+
+var Hello = React.createClass({
+  render() {
+    return &lt;div&gt;{this.props.children}&lt;/div&gt;;
+  }
+});
+
+console.log(
+  React.render(
+    &lt;Hello&gt;xxx&lt;/Hello&gt;,
+    document.body
+  ).props.children
+);
+// =&gt; xxx
+
+console.log(
+  React.render(
+     &lt;Hello&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/Hello&gt;,
+     document.body
+  ).props.children
+);
+// =&gt; [React.Element, React.Element]
+
+console.log(
+  React.render(
+    &lt;Hello&gt;&lt;/Hello&gt;,
+    document.body
+  ).props.children
+);
+// undefined
+
+
 
