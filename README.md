@@ -297,7 +297,7 @@ console.log(
 createClass는 이전 버전의 class 사용방법.
 
 지금의 사용방법
-><pre><code>
+<pre><code>
   import React, { Component } from 'react';
 
   class App extends Component {
