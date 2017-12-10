@@ -293,3 +293,53 @@ console.log(
 
 </pre></code>
 
+자바스크립트에서의 키워드 : class 따라서 JSX에서는 className 으로 대체해서 사용
+createClass는 이전 버전의 class 사용방법.
+
+지금의 사용방법
+><pre><code>
+  import React, { Component } from 'react';
+
+  class App extends Component {
+    render() {
+              return (<div>{this.props.children}</div>);
+          };
+  }
+
+  export default App;
+</code></pre>
+이런 식으로 컴포넌트 파일을 따로 둔 후 React를 import받아 class 객체를 만든다.
+후에 &lt;App/&gt;로 호출할 수 있다.
+
+## 4장 리액트 스타일링
+
+* css속성을 자바스크립트 방식 변환 공식
+>1. 한단어의 css속성(예를 들어 padding,margin,color)은 그대로 쓴다.
+>2. 대시로 연결된 여러 단어의 css속성(backgroud-color 등등)은 카멜 표기법, backgroud-color->backgroundColor
+
+* 콘텐츠 스타일링 
+  var로 변수 선언후 변수안에 스타일 객체를 담는다.
+  <pre><code>
+    const AppStyle = {
+                padding:10, margin:10, backgroundColor:this.props.bgColor,
+                color:"#333", display:"inline-block", fontFamily:"monospace",
+                fontSize:32, textAlign:"center"
+            }
+  </code></pre>
+
+  * 접미사 'px'의 생략
+   픽셀값을 만들때 px를 생략할 수 있다.
+
+   px 생략하지 않는 픽셀 접미사 : http://shripadk.github.io/react/tips/style-props-value-px.html
+
+   * 스타일 커스터마이징
+    <pre><code>
+      const AppStyle = {
+          padding:10, margin:10, backgroundColor:this.props.bgColor,
+          color:"#333", display:"inline-block", fontFamily:"monospace",
+          fontSize:32, textAlign:"center"
+      }
+      return (<div style={AppStyle}>{this.props.children}</div>);
+    </code></pre>
+
+    
