@@ -145,7 +145,7 @@ _setState를 통해 state 객체에 내용이 변경될 때마다 render메소�
 
 render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 다룰 경우에 제약이 따른다.
 <pre><code>
-    var theCircle=`<App bgColor="#F9C240"/>`
+    var theCircle=&lt;App bgColor="#F9C240"/&gt;
     ReactDOM.render(&lt;div&gt;{theCircle}&lt;/div&gt;, document.getElementById('root'));
 
 
@@ -165,7 +165,7 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
 
     // 배열을 만들어서 배열에 컴포넌트를 집어넣은 후 rendering이 가능하다
     var cirArr=[];
-    for(var i=0;i<colors.length*3;i++){
+    for(var i=0;i&lt;colors.length*3;i++){
         cirArr.push(showCircle(i));
     }
     ReactDOM.render(&lt;div&gt;{cirArr}&lt;/div&gt;, document.getElementById('root'));
@@ -175,7 +175,7 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
 이런 방법으로 컴포넌트를 인스턴스화 시킨 JSX를 만든다. 유연성을 이용하여 많은 일이 가능하다.
 
 
-<img src='./img/9-1.PNG' width=100; height=100;>
+<img src='./img/9-1.PNG' >
 
 
 <pre><code>
@@ -188,7 +188,7 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
     }
 
     var cirArr=[];
-    for(var i=0;i<colors.length*3;i++){
+    for(var i=0;i&lt;colors.length*3;i++){
         cirArr.push(showCircle(i));
         console.log(cirArr[i]);
         
@@ -199,4 +199,4 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
 
 </pre></code>
 
-<img src='./img/9-2.PNG' width=100; height=100;>
+<img src='./img/9-2.PNG'>
