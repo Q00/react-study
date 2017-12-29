@@ -109,6 +109,8 @@ constructor로 대신한다.
     }
 </pre></code>
 
+
+
 <img src='./img/8-2.PNG'>
 
 -------
@@ -171,7 +173,9 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
 
 </pre></code>
 이런 방법으로 컴포넌트를 인스턴스화 시킨 JSX를 만든다. 유연성을 이용하여 많은 일이 가능하다.
-<img src='./img/9-1.PNG'>
+
+
+<img src='./img/9-1.PNG' width=100; height=100;>
 
 
 <pre><code>
@@ -195,4 +199,4 @@ render 메소드에서 컴포넌트의 동작에 영향을 주는 데이터를 �
 
 </pre></code>
 
-<img src='./img/9-2.PNG'>
+<img src='./img/9-2.PNG' width=100; height=100;>
