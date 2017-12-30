@@ -7,7 +7,7 @@
 * 상태 보존 컴포넌트
 
 -------
-
+\<div>\</div>
 <pre><code>
     import React, { Component } from 'react';
 
