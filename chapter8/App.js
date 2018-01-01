@@ -52,8 +52,8 @@ class LightningCounter extends Component{
 
   //arrow function  사용 -> this를 자동으로 받아줌
   timerTick= () =>{
-    this.setState({
-      strikes:this.state.strikes+100
+    this.setState(prevState => {
+      strikes:prevState.state.strikes+100
     });
   }
 
